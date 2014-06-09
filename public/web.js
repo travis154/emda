@@ -45,8 +45,10 @@ $(function(){
 				if(!post.message){
 					return;
 				}
+				var postid = post.id.split("_");
+				var posturl = "https://facebook.com/294678554035358/posts/" + postid.pop();
 				var name = post.message.split("\n")[0];
-				el.append("<div class='row'><div class='col-md-3'><h1>#"+ord+"</h1><img class='img-circle img-responsive' src='"+post.picture+"' /></div><div class='col-md-9'><h1>"+name+"</h1><hr /><h2>"+post.score+" points</h2><h4>"+post.likes.summary.total_count+" likes / "+(post.shares ? post.shares.count : 0)+" shares</h4></div></div>")
+				el.append("<div class='row'><div class='col-md-3'><h1>#"+ord+" | <small><a href='"+posturl+"'>vote</a></small></h1><img class='img-circle img-responsive' src='"+post.picture+"' /></div><div class='col-md-9'><h1>"+name+"</h1><hr /><h2>"+post.score+" points</h2><h4>"+post.likes.summary.total_count+" likes / "+(post.shares ? post.shares.count : 0)+" shares</h4></div></div>")
 				$("#stuff").append(el);
 				ord++;
 			})
