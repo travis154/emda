@@ -25,10 +25,10 @@ $(function(){
 			var map = _.map(all,function(post){
 				var score=0;
 				if(post.likes){
-					score = post.likes.summary.total_count;
+					score = post.likes.summary.total_count * 3;
 				}
 				if(post.shares){
-					score = score + (post.shares.count * 3);
+					score = score + post.shares.count;
 				}
 				post.score = score;
 				return post;
